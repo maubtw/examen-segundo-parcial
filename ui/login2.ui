@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>475</width>
+    <height>523</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_8">
+    <item row="0" column="0">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="login">
+       <property name="styleSheet">
+        <string notr="true">/* === Estilo general === */
+QMainWindow {
+    background-color: #f6f7fb;
+    color: #333333;
+    font-family: &quot;Segoe UI Variable&quot;, &quot;Roboto&quot;, &quot;Open Sans&quot;, sans-serif;
+    font-size: 32px;
+    font-weight: 300; /* Más delgada */
+}
+
+/* === Frames === */
+QFrame {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+}
+
+/* Barra superior */
+#frame_superior {
+    background-color: #e8ecf1;
+    border: none;
+}
+
+/* Panel lateral */
+#frame_lateral {
+    background-color: #f1f3f6;
+    border-right: 1px solid #d1d1d1;
+}
+
+/* Área principal */
+#frame_paginas {
+    background-color: #ffffff;
+}
+
+/* === Botones === */
+QPushButton {
+    background-color: #f5f5f5;
+    color: #333333;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+}
+
+QPushButton:hover {
+    background-color: #0078d7;
+    color: #ffffff;
+    border: 1px solid #0078d7;
+}
+
+QPushButton:pressed {
+    background-color: #005a9e;
+    color: #ffffff;
+    border: 1px solid #005a9e;
+}
+
+/* Botón principal (Menú) */
+#boton_menu {
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    font-weight: 400;
+}
+#boton_menu:hover {
+    background-color: #006cbe;
+}
+#boton_menu:pressed {
+    background-color: #005a9e;
+}
+
+/* Botón salir */
+#boton_salir {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+}
+#boton_salir:hover {
+    background-color: #c0392b;
+}
+#boton_salir:pressed {
+    background-color: #a93226;
+}
+
+/* === Campos de texto === */
+QLineEdit {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+QLineEdit:focus {
+    border: 1px solid #0078d7;
+    background-color: #f9fcff;
+}
+
+/* === Labels === */
+QLabel {
+    color: #333333;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+/* Label inferior o secundario */
+#label {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* === Stacked Widget === */
+QStackedWidget {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+}
+
+/* === Scrollbars === */
+QScrollBar:vertical {
+    border: none;
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical {
+    background: #cccccc;
+    min-height: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #0078d7;
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+/* === Layouts === */
+QVBoxLayout, QHBoxLayout {
+    spacing: 10px;
+}
+
+/* === Botones laterales === */
+#boton_agregar, #boton_buscar, #boton_actualizar, #boton_eliminar, #boton_consultar {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    color: #333333;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+#boton_agregar:hover, 
+#boton_buscar:hover, 
+#boton_actualizar:hover, 
+#boton_eliminar:hover,
+#boton_consultar:hover {
+    background-color: #e8f0fe;
+    border: 1px solid #0078d7;
+    color: #0078d7;
+}
+
+#boton_agregar:pressed, 
+#boton_buscar:pressed, 
+#boton_actualizar:pressed, 
+#boton_eliminar:pressed ,
+#boton_consultar:pressed{
+    background-color: #cce0ff;
+}
+
+/* === Tooltips === */
+QToolTip {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #0078d7;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 14px;
+}</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0" colspan="3">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>167</width>
+              <height>17</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="icono">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../resources/imagenes/loginlogo.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>128</width>
+              <height>17</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>118</width>
+            <height>349</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="1">
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="2" column="0">
+           <widget class="QPushButton" name="btn_login">
+            <property name="text">
+             <string>Iniciar Sesion</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QPushButton" name="btn_reg">
+            <property name="text">
+             <string>Registrarse</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="0" column="0">
+             <widget class="QLineEdit" name="usuario">
+              <property name="placeholderText">
+               <string>Usuario</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="contra">
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+              <property name="placeholderText">
+               <string>Contraseña</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="2">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>108</width>
+            <height>349</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="0" colspan="3">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>491</width>
+            <height>28</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <property name="styleSheet">
+        <string notr="true">/* === Estilo general === */
+QMainWindow {
+    background-color: #f6f7fb;
+    color: #333333;
+    font-family: &quot;Segoe UI Variable&quot;, &quot;Roboto&quot;, &quot;Open Sans&quot;, sans-serif;
+    font-size: 32px;
+    font-weight: 300; /* Más delgada */
+}
+
+/* === Frames === */
+QFrame {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+}
+
+/* Barra superior */
+#frame_superior {
+    background-color: #e8ecf1;
+    border: none;
+}
+
+/* Panel lateral */
+#frame_lateral {
+    background-color: #f1f3f6;
+    border-right: 1px solid #d1d1d1;
+}
+
+/* Área principal */
+#frame_paginas {
+    background-color: #ffffff;
+}
+
+/* === Botones === */
+QPushButton {
+    background-color: #f5f5f5;
+    color: #333333;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+}
+
+QPushButton:hover {
+    background-color: #0078d7;
+    color: #ffffff;
+    border: 1px solid #0078d7;
+}
+
+QPushButton:pressed {
+    background-color: #005a9e;
+    color: #ffffff;
+    border: 1px solid #005a9e;
+}
+
+/* Botón principal (Menú) */
+#boton_menu {
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    font-weight: 400;
+}
+#boton_menu:hover {
+    background-color: #006cbe;
+}
+#boton_menu:pressed {
+    background-color: #005a9e;
+}
+
+/* Botón salir */
+#boton_salir {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+}
+#boton_salir:hover {
+    background-color: #c0392b;
+}
+#boton_salir:pressed {
+    background-color: #a93226;
+}
+
+/* === Campos de texto === */
+QLineEdit {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+QLineEdit:focus {
+    border: 1px solid #0078d7;
+    background-color: #f9fcff;
+}
+
+/* === Labels === */
+QLabel {
+    color: #333333;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+/* Label inferior o secundario */
+#label {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* === Stacked Widget === */
+QStackedWidget {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+}
+
+/* === Scrollbars === */
+QScrollBar:vertical {
+    border: none;
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical {
+    background: #cccccc;
+    min-height: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #0078d7;
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+/* === Layouts === */
+QVBoxLayout, QHBoxLayout {
+    spacing: 10px;
+}
+
+/* === Botones laterales === */
+#boton_agregar, #boton_buscar, #boton_actualizar, #boton_eliminar, #boton_consultar {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    color: #333333;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+#boton_agregar:hover, 
+#boton_buscar:hover, 
+#boton_actualizar:hover, 
+#boton_eliminar:hover,
+#boton_consultar:hover {
+    background-color: #e8f0fe;
+    border: 1px solid #0078d7;
+    color: #0078d7;
+}
+
+#boton_agregar:pressed, 
+#boton_buscar:pressed, 
+#boton_actualizar:pressed, 
+#boton_eliminar:pressed ,
+#boton_consultar:pressed{
+    background-color: #cce0ff;
+}
+
+/* === Tooltips === */
+QToolTip {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #0078d7;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 14px;
+}</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="1" column="2">
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>118</width>
+            <height>321</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="0" colspan="3">
+         <spacer name="horizontalSpacer_16">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>436</width>
+            <height>25</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="0">
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>139</width>
+            <height>321</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer_14">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>118</width>
+              <height>77</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="icono_bienvenido">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>200</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>-1</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    font-size: 26px;
+    font-weight: bold;
+    color: #2E86C1;
+    border: none;
+    background: transparent;
+}
+
+
+</string>
+            </property>
+            <property name="lineWidth">
+             <number>0</number>
+            </property>
+            <property name="text">
+             <string>Bienvenido!</string>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_15">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>128</width>
+              <height>77</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="1">
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="2" column="0">
+           <widget class="QPushButton" name="btn_page_provedores">
+            <property name="text">
+             <string>Provedores</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="btn_page_productos">
+            <property name="text">
+             <string>Productos</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QPushButton" name="btn_cerrarSesion">
+            <property name="text">
+             <string>Cerrar sesion</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>475</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
