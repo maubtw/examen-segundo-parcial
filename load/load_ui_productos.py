@@ -36,7 +36,8 @@ class Load_ui_productos(QtWidgets.QMainWindow):
         self.boton_actualizar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_actualizar))
         self.boton_eliminar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_eliminar))
         self.boton_consultar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_consultar))
-
+        
+        
         #Botones para guardar, buscar, actualizar, eliminar y salir
         #Botones para guardar, buscar, actualizar, eliminar y salir
         self.accion_agregar.clicked.connect(self.guardar_producto)
@@ -54,13 +55,36 @@ class Load_ui_productos(QtWidgets.QMainWindow):
         """
         Funcion para agregar un producto
         """
-        self.productodao.producto.clave = self.sku_agregar.text()
-        self.productodao.producto.descripcion = self.descripcion_agregar.text()
-        self.productodao.producto.existencia = int(self.existencia_agregar.text())
-        self.productodao.producto.precio = float(self.precio_agregar.text())
+        clave = self.sku_agregar.text()
+        descripcion = self.descripcion_agregar.text()
+        existencia_str = self.existencia_agregar.text()
+        precio_str = self.precio_agregar.text()
 
-        self.productodao.insertarProducto()
+        if not clave or not descripcion or not existencia_str or not precio_str:
+            self.label.setText("Error: Todos los campos son obligatorios.")
+            return
 
+        try:
+            self.productodao.producto.clave = clave
+            self.productodao.producto.descripcion = descripcion
+            self.productodao.producto.existencia = int(existencia_str)
+            self.productodao.producto.precio = float(precio_str)
+            
+            self.productodao.insertarProducto()
+            
+            self.label.setText("Producto insertado con éxito")
+            self.sku_agregar.clear()
+            self.descripcion_agregar.clear()
+            self.existencia_agregar.clear()
+            self.precio_agregar.clear()
+
+        except ValueError:
+            self.label.setText("Error: Existencia o Precio deben ser números.")
+        except Exception as e:
+            self.label.setText("Error al insertar. Verifique los datos.")
+            print(f"Error en guardar_producto: {e}")
+
+        
     def actualizar_producto(self):
             """
             Funcion para recuperar un producto conforme a su SKU
@@ -253,7 +277,6 @@ class Load_ui_productos(QtWidgets.QMainWindow):
             self.showMaximized()
         else:
             self.showNormal()
-#7.- Mover menú
 #7.- Mover menú
     def mover_menu(self):
         if True:			

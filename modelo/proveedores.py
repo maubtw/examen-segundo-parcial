@@ -1,9 +1,8 @@
 class Proveedores:
-
     def __init__(self):
-        self.id_proveedor: int=0
-        self.nombre: str=""
-        self.telefono: str=""
-        self.direccion: str=""
-        self.email: str=""
-        
+        self.id_proveedor = 0 # Corresponde a id_proveedores
+        self.clave = ""
+        self.nombre = ""
+        self.telefono = ""
+        self.direccion = ""
+        self.email = ""
